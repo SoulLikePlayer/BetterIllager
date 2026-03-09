@@ -1,12 +1,16 @@
 package net.betterillager.client;
 
 import net.betterillager.core.BetterIllager;
+import net.betterillager.world.entity.ModEntityType;
+import net.minecraft.client.renderer.entity.IllagerRenderer;
+import net.minecraft.client.renderer.entity.PillagerRenderer;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 
 /**
  * Client-side entry point for the Better Illager mod.
@@ -32,17 +36,8 @@ public class BetterIllagerClient {
      */
     public BetterIllagerClient(ModContainer container) {}
 
-    /**
-     * Handles the client setup event.
-     * <p>
-     * This method is called during the client initialization phase, after the mod
-     * has been constructed. It's the ideal place to register entity renderers,
-     * screen factories, key bindings, and other client-side only features.
-     * </p>
-     *
-     * @param event The client setup event, providing access to the client's
-     *              {@link net.minecraft.client.Minecraft} instance and enqueued work
-     */
     @SubscribeEvent
-    static void onClientSetup(FMLClientSetupEvent event) {}
+    public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event){
+        event.registerEntityRenderer(ModEntityType.ICEOLOGER, PillagerRenderer::new);
+    }
 }
