@@ -31,6 +31,14 @@ public class IceBlockProjectileRenderer extends EntityRenderer<@NotNull IceBlock
 
     public void extractRenderState(@NotNull IceBlockProjectile entity, @NotNull IceBlockProjectileRenderState reusedState, float partialTick) {
         super.extractRenderState(entity, reusedState, partialTick);
+
+        reusedState.spawnAnimationProgress = entity.getSpawnAnimationProgress();
+        reusedState.ageInTicks = entity.tickCount;
+        reusedState.spawnAnimationStarted = entity.isSpawnAnimationStarted(); // Ajoute cette ligne
+
+        if (entity.isSpawnAnimationStarted() && !reusedState.spawnAnimation.isStarted()) {
+            reusedState.spawnAnimation.start(entity.tickCount);
+        }
     }
 
     public void submit(@NotNull IceBlockProjectileRenderState renderState, @NotNull PoseStack poseStack, @NotNull SubmitNodeCollector nodeCollector, @NotNull CameraRenderState cameraRenderState) {

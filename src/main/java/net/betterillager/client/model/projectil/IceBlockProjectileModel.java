@@ -1,7 +1,11 @@
 package net.betterillager.client.model.projectil;
 
+import net.betterillager.client.animation.IceBlockProjectileAnimation;
+import net.betterillager.client.renderer.state.IceBlockProjectileRenderState;
 import net.betterillager.core.BetterIllager;
 import net.minecraft.client.animation.AnimationDefinition;
+import net.minecraft.client.animation.KeyframeAnimation;
+import net.minecraft.client.animation.KeyframeAnimations;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
@@ -11,10 +15,10 @@ import net.minecraft.client.renderer.entity.state.EntityRenderState;
 import net.minecraft.resources.Identifier;
 import org.jetbrains.annotations.NotNull;
 
-public class IceBlockProjectileModel extends EntityModel<@NotNull EntityRenderState> {
+public class IceBlockProjectileModel extends EntityModel<@NotNull IceBlockProjectileRenderState> {
     private final ModelPart base;
-    private AnimationDefinition currentAnimation;
-    private float animationTime;
+
+    private final KeyframeAnimation spawningAnimation;
 
     public static final ModelLayerLocation ICE_BLOCK_PROJECTIL_LAYER = new ModelLayerLocation(
             Identifier.fromNamespaceAndPath(BetterIllager.MODID, "ice_block_projectile"),
@@ -24,6 +28,8 @@ public class IceBlockProjectileModel extends EntityModel<@NotNull EntityRenderSt
     public IceBlockProjectileModel(ModelPart root) {
         super(root);
         this.base = root.getChild("base");
+
+        this.spawningAnimation = IceBlockProjectileAnimation.SPAWN_ANIMATION.bake(root);
     }
 
     public static LayerDefinition createBodyLayer(){
@@ -39,5 +45,14 @@ public class IceBlockProjectileModel extends EntityModel<@NotNull EntityRenderSt
         );
 
         return LayerDefinition.create(mesh, 64, 32);
+    }
+
+    public void setupAnim(@NotNull IceBlockProjectileRenderState renderState) {
+        this.root().getAllParts().forEach(ModelPart::resetPose);
+
+        if(renderState.spawnAnimationProgress < 1.0f){
+            float animationTime = renderState.spawnAnimationProgress * 10.0f;
+            this.spawningAnimation.apply(renderState.spawnAnimation, animationTime, 1.0f);
+        }
     }
 }

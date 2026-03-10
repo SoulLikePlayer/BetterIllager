@@ -18,6 +18,9 @@ public class IceBlockProjectile extends Entity {
     private final LivingEntity target;
     private static final double EYE_HEIGHT_OFFSET = 0.4;
 
+    private boolean spawnAnimationStarted = false;
+    private int spawnAnimationTime = 0;
+
     public IceBlockProjectile(EntityType<?> entityType, Level level, @Nullable LivingEntity target) {
         super(entityType, level);
         this.target = target;
@@ -30,6 +33,15 @@ public class IceBlockProjectile extends Entity {
     public void tick() {
         super.tick();
 
+        if (!spawnAnimationStarted) {
+            spawnAnimationStarted = true;
+            spawnAnimationTime = 10;
+        }
+
+        if (spawnAnimationTime > 0) {
+            spawnAnimationTime--;
+        }
+
         if (level().isClientSide()) {
             for (int i = 0; i < 3; i++) {
                 double offsetX = (random.nextDouble() - 0.5) * 0.5;
@@ -38,7 +50,7 @@ public class IceBlockProjectile extends Entity {
                 level().addParticle(
                         ParticleTypes.SNOWFLAKE,
                         getX() + offsetX,
-                        getY(),
+                        getY() + EYE_HEIGHT_OFFSET + 0.3,
                         getZ() + offsetZ,
                         0, 0, 0
                 );
@@ -172,4 +184,17 @@ public class IceBlockProjectile extends Entity {
     protected void readAdditionalSaveData(@NotNull ValueInput valueInput) {}
 
     protected void addAdditionalSaveData(@NotNull ValueOutput valueOutput) {}
+
+    public float getSpawnAnimationProgress() {
+        if (!spawnAnimationStarted) return 0f;
+        return 1.0f - ((float) spawnAnimationTime / 10.0f);
+    }
+
+    public boolean isSpawnAnimationStarted() {
+        return spawnAnimationStarted;
+    }
+
+    public int getSpawnAnimationTime() {
+        return spawnAnimationTime;
+    }
 }
