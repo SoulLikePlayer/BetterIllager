@@ -2,7 +2,6 @@ package net.betterillager.world.entity.monster.illager;
 
 import net.betterillager.world.entity.ModEntityType;
 import net.betterillager.world.entity.projectile.IceBlockProjectile;
-import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -16,7 +15,6 @@ import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.golem.IronGolem;
-import net.minecraft.world.entity.item.FallingBlockEntity;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.creaking.Creaking;
 import net.minecraft.world.entity.monster.illager.AbstractIllager;
@@ -25,7 +23,6 @@ import net.minecraft.world.entity.npc.villager.AbstractVillager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.raid.Raider;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Blocks;
 import org.jetbrains.annotations.NotNull;
 import org.jspecify.annotations.Nullable;
 
@@ -99,14 +96,18 @@ public class Iceologer extends SpellcasterIllager {
 
             if(target != null){
 
+                double y = target.getY() + 8;
+
                 IceBlockProjectile ice = new IceBlockProjectile(
                         ModEntityType.ICE_BLOCK_PROJECTILE.get(),
-                        level()
+                        level(),
+                        Iceologer.this.getTarget(),
+                        y
                 );
 
                 ice.setPos(
                         target.getX(),
-                        target.getY() + 8,
+                        y,
                         target.getZ()
                 );
 

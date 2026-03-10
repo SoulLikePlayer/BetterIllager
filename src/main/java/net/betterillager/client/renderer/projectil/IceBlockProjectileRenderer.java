@@ -2,6 +2,7 @@ package net.betterillager.client.renderer.projectil;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.betterillager.client.model.projectil.IceBlockProjectileModel;
+import net.betterillager.core.BetterIllager;
 import net.betterillager.world.entity.projectile.IceBlockProjectile;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.entity.EntityRenderer;
@@ -14,7 +15,7 @@ import org.jetbrains.annotations.NotNull;
 public class IceBlockProjectileRenderer extends EntityRenderer<@NotNull IceBlockProjectile, @NotNull EntityRenderState> {
     private final IceBlockProjectileModel model;
     private static final Identifier TEXTURE =
-            Identifier.fromNamespaceAndPath("betterillager","textures/entity/ice_block_projectile.png");
+            Identifier.fromNamespaceAndPath(BetterIllager.MODID,"textures/entity/ice_block_projectile.png");
 
     public IceBlockProjectileRenderer(EntityRendererProvider.Context context) {
         super(context);
