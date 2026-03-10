@@ -1,5 +1,6 @@
 package net.betterillager.core;
 
+import net.betterillager.world.entity.ModEntityType;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -37,6 +38,8 @@ public class BetterIllager {
     public BetterIllager(IEventBus modEventBus, ModContainer modContainer) {
         modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(this::addCreative);
+
+        ModEntityType.ENTITY_TYPES.register(modEventBus);
 
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }

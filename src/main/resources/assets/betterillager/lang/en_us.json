@@ -1,13 +1,3 @@
 {
-  "itemGroup.betterillager": "Example Mod Tab",
-  "block.betterillager.example_block": "Example Block",
-  "item.betterillager.example_item": "Example Item",
-
-  "betterillager.configuration.title": "BetterIllager Configs",
-  "betterillager.configuration.section.betterillager.common.toml": "BetterIllager Configs",
-  "betterillager.configuration.section.betterillager.common.toml.title": "BetterIllager Configs",
-  "betterillager.configuration.items": "Item List",
-  "betterillager.configuration.logDirtBlock": "Log Dirt Block",
-  "betterillager.configuration.magicNumberIntroduction": "Magic Number Text",
-  "betterillager.configuration.magicNumber": "Magic Number"
+  "entity.betterillager.iceologer": "Iceologer"
 }
