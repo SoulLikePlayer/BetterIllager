@@ -1,6 +1,8 @@
 package net.betterillager.client;
 
+import net.betterillager.client.model.projectil.IceBlockProjectileModel;
 import net.betterillager.client.renderer.entity.IceologerRenderer;
+import net.betterillager.client.renderer.projectil.IceBlockProjectileRenderer;
 import net.betterillager.core.BetterIllager;
 import net.betterillager.world.entity.ModEntityType;
 import net.neoforged.api.distmarker.Dist;
@@ -37,8 +39,11 @@ public class BetterIllagerClient {
     @SubscribeEvent
     public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event){
         event.registerEntityRenderer(ModEntityType.ICEOLOGER.get(), IceologerRenderer::new);
+        event.registerEntityRenderer(ModEntityType.ICE_BLOCK_PROJECTILE.get(), IceBlockProjectileRenderer::new);
     }
 
     @SubscribeEvent
-    public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {}
+    public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
+        event.registerLayerDefinition(IceBlockProjectileModel.ICE_BLOCK_PROJECTIL_LAYER, IceBlockProjectileModel::createBodyLayer);
+    }
 }
