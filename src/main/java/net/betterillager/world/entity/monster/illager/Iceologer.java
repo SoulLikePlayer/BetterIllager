@@ -18,13 +18,13 @@ import net.minecraft.world.entity.animal.golem.IronGolem;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.creaking.Creaking;
 import net.minecraft.world.entity.monster.illager.AbstractIllager;
+import net.minecraft.world.entity.monster.illager.Evoker;
 import net.minecraft.world.entity.monster.illager.SpellcasterIllager;
 import net.minecraft.world.entity.npc.villager.AbstractVillager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.raid.Raider;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
-import org.jspecify.annotations.Nullable;
 
 public class Iceologer extends SpellcasterIllager {
     public Iceologer(EntityType<? extends @NotNull Iceologer> entityType, Level level) {
@@ -34,12 +34,10 @@ public class Iceologer extends SpellcasterIllager {
     protected void registerGoals() {
         super.registerGoals();
         this.goalSelector.addGoal(0, new FloatGoal(this));
+        this.goalSelector.addGoal(1, new Iceologer.IceologerCastingSpellGoal());
         this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, Creaking.class, 8.0F, (double)1.0F, 1.2));
         this.goalSelector.addGoal(2, new Raider.HoldGroundAttackGoal(this, 10.0F));
-        this.goalSelector.addGoal(2, new AvoidEntityGoal<>(this, Player.class, 8.0F, 0.6, (double)1.0F));
-        this.goalSelector.addGoal(2, new AvoidEntityGoal<>(this, IronGolem.class, 8.0F, 0.6, (double)1.0F));
-        this.goalSelector.addGoal(2, new AvoidEntityGoal<>(this, AbstractVillager.class, 8.0F, 0.6, (double)1.0F));
-        this.goalSelector.addGoal(3, new Iceologer.IceologerIceSpell());
+        this.goalSelector.addGoal(3, new Iceologer.IceologerIceBlockSpell());
         this.goalSelector.addGoal(8, new RandomStrollGoal(this, 0.6));
         this.goalSelector.addGoal(9, new LookAtPlayerGoal(this, Player.class, 15.0F, 1.0F));
         this.goalSelector.addGoal(10, new LookAtPlayerGoal(this, Mob.class, 15.0F));
@@ -88,31 +86,48 @@ public class Iceologer extends SpellcasterIllager {
         return SoundEvents.PILLAGER_CELEBRATE;
     }
 
-    class IceologerIceSpell extends SpellcasterIllager.SpellcasterUseSpellGoal{
+    class IceologerCastingSpellGoal extends SpellcasterIllager.SpellcasterCastingSpellGoal {
+        IceologerCastingSpellGoal() {
+            super();
+        }
 
-        protected void performSpellCasting() {
+        public void tick() {
+            if (Iceologer.this.getTarget() != null) {
+                Iceologer.this.getLookControl().setLookAt(Iceologer.this.getTarget(), (float)Iceologer.this.getMaxHeadYRot(), (float)Iceologer.this.getMaxHeadXRot());
+            }
+        }
+    }
 
+    class IceologerIceBlockSpell extends SpellcasterIllager.SpellcasterUseSpellGoal {
+        public boolean canUse() {
             LivingEntity target = Iceologer.this.getTarget();
 
-            if(target != null){
-
-                double y = target.getY() + 8;
-
-                IceBlockProjectile ice = new IceBlockProjectile(
-                        ModEntityType.ICE_BLOCK_PROJECTILE.get(),
-                        level(),
-                        Iceologer.this.getTarget(),
-                        y
-                );
-
-                ice.setPos(
-                        target.getX(),
-                        y,
-                        target.getZ()
-                );
-
-                level().addFreshEntity(ice);
+            if (target == null || !target.isAlive()) {
+                return false;
             }
+
+            return super.canUse();
+        }
+
+        public boolean canContinueToUse() {
+            LivingEntity target = Iceologer.this.getTarget();
+            return target != null && target.isAlive() && super.canContinueToUse();
+        }
+
+        protected void performSpellCasting() {
+            LivingEntity target = Iceologer.this.getTarget();
+            if (target == null) return;
+
+            double y = target.getY() + 4;
+
+            IceBlockProjectile ice = new IceBlockProjectile(
+                    ModEntityType.ICE_BLOCK_PROJECTILE.get(),
+                    level(),
+                    target
+            );
+
+            ice.setPos(target.getX(), y, target.getZ());
+            level().addFreshEntity(ice);
         }
 
         protected int getCastingTime() {
@@ -123,12 +138,12 @@ public class Iceologer extends SpellcasterIllager {
             return 120;
         }
 
-        protected @Nullable SoundEvent getSpellPrepareSound() {
+        protected SoundEvent getSpellPrepareSound() {
             return null;
         }
 
         protected @NotNull IllagerSpell getSpell() {
-            return IllagerSpell.SUMMON_VEX;
+            return IllagerSpell.FANGS;
         }
     }
 }

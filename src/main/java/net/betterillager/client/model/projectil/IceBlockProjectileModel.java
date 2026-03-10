@@ -1,8 +1,7 @@
 package net.betterillager.client.model.projectil;
 
-import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.betterillager.core.BetterIllager;
+import net.minecraft.client.animation.AnimationDefinition;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
@@ -14,10 +13,12 @@ import org.jetbrains.annotations.NotNull;
 
 public class IceBlockProjectileModel extends EntityModel<@NotNull EntityRenderState> {
     private final ModelPart base;
+    private AnimationDefinition currentAnimation;
+    private float animationTime;
 
     public static final ModelLayerLocation ICE_BLOCK_PROJECTIL_LAYER = new ModelLayerLocation(
-      Identifier.fromNamespaceAndPath(BetterIllager.MODID, "ice_block_projectile"),
-      "main"
+            Identifier.fromNamespaceAndPath(BetterIllager.MODID, "ice_block_projectile"),
+            "main"
     );
 
     public IceBlockProjectileModel(ModelPart root) {

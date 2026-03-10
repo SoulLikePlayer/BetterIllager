@@ -5,6 +5,7 @@ import net.betterillager.client.renderer.entity.IceologerRenderer;
 import net.betterillager.client.renderer.projectil.IceBlockProjectileRenderer;
 import net.betterillager.core.BetterIllager;
 import net.betterillager.world.entity.ModEntityType;
+import net.minecraft.client.renderer.entity.ArrowRenderer;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
