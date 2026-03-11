@@ -2,6 +2,7 @@ package net.betterillager.world.item;
 
 import net.betterillager.core.BetterIllager;
 import net.betterillager.world.entity.ModEntityType;
+import net.betterillager.world.item.tools.EvokerScepterItem;
 import net.betterillager.world.item.tools.OminousHornItem;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
@@ -29,4 +30,9 @@ public class ModItems {
                     .stacksTo(1)
                     .component(DataComponents.INSTRUMENT, new InstrumentComponent(Instruments.SEEK_GOAT_HORN))
     ));
+
+    public static final DeferredItem<@NotNull Item> EVOKER_SCEPTER = ITEMS.registerItem(
+            "evoker_scepter",
+            EvokerScepterItem::new
+    );
 }

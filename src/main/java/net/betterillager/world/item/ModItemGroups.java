@@ -1,11 +1,13 @@
 package net.betterillager.world.item;
 
 import net.betterillager.core.BetterIllager;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.component.OminousBottleAmplifier;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
@@ -41,8 +43,13 @@ public class ModItemGroups {
                     .icon(() -> new ItemStack(Items.OMINOUS_BOTTLE))
                     .title(Component.translatable("creativetab.betterillager.illager_tools_and_utilities"))
                     .displayItems(((itemDisplayParameters, output) -> {
-                        output.accept(Items.OMINOUS_BOTTLE);
+                        for (int i = 0; i < 5; i++) {
+                            ItemStack stack = new ItemStack(Items.OMINOUS_BOTTLE);
+                            stack.set(DataComponents.OMINOUS_BOTTLE_AMPLIFIER, new OminousBottleAmplifier(i));
+                            output.accept(stack);
+                        }
                         output.accept(ModItems.OMINOUS_HORN);
+                        output.accept(ModItems.EVOKER_SCEPTER);
                     }))
                     .build()
     );
