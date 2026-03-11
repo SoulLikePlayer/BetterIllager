@@ -14,6 +14,8 @@ import org.slf4j.LoggerFactory;
 import java.util.function.Supplier;
 
 public class ModItemGroups {
+    private static final Logger LOGGER = LoggerFactory.getLogger(ModItemGroups.class);
+
     public static final DeferredRegister<@NotNull CreativeModeTab> CREATIVE_MODE_TAB =
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, BetterIllager.MODID);
 
@@ -33,5 +35,15 @@ public class ModItemGroups {
                     .build()
     );
 
-    private static final Logger log = LoggerFactory.getLogger(ModItemGroups.class);
+    public static final Supplier<CreativeModeTab> ILLAGER_TOOLS_AND_UTILITIES = CREATIVE_MODE_TAB.register(
+            "illager_tools_and_utilities",
+            () -> CreativeModeTab.builder()
+                    .icon(() -> new ItemStack(Items.OMINOUS_BOTTLE))
+                    .title(Component.translatable("creativetab.betterillager.illager_tools_and_utilities"))
+                    .displayItems(((itemDisplayParameters, output) -> {
+                        output.accept(Items.OMINOUS_BOTTLE);
+                        output.accept(ModItems.OMINOUS_HORN);
+                    }))
+                    .build()
+    );
 }
