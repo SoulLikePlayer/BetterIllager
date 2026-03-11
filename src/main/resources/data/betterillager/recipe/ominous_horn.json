@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "show_notification": true,
+  "category": "misc",
+  "pattern": [
+    "ooo",
+    " g "
+  ],
+  "key": {
+    "o": [
+      "minecraft:ominous_bottle"
+    ],
+    "g": [
+      "minecraft:goat_horn"
+    ]
+  },
+  "result": {
+    "id": "betterillager:ominous_horn",
+    "count": 1
+  }
+}
