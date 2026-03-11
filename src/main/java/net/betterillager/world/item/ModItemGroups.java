@@ -20,6 +20,7 @@ public class ModItemGroups {
     public static final Supplier<CreativeModeTab> ILLAGER_SPAWN_EGG = CREATIVE_MODE_TAB.register(
             "illager_spawn_egg",
             () -> CreativeModeTab.builder()
+                    .icon(() -> new ItemStack(Items.PILLAGER_SPAWN_EGG))
                     .title(Component.translatable("creativetab.betterillager.illager_spawn_egg"))
                     .displayItems(((itemDisplayParameters, output) -> {
                         output.accept(Items.VEX_SPAWN_EGG);
