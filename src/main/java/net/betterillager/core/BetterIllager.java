@@ -1,6 +1,10 @@
 package net.betterillager.core;
 
 import net.betterillager.world.entity.ModEntityType;
+import net.betterillager.world.item.ModItemGroups;
+import net.betterillager.world.item.ModItems;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.CreativeModeTabs;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -40,6 +44,8 @@ public class BetterIllager {
         modEventBus.addListener(this::addCreative);
 
         ModEntityType.ENTITY_TYPES.register(modEventBus);
+        ModItems.ITEMS.register(modEventBus);
+        ModItemGroups.CREATIVE_MODE_TAB.register(modEventBus);
 
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
@@ -68,5 +74,9 @@ public class BetterIllager {
      * @param event The event containing the creative tab and the mutable list
      *              of items to be displayed
      */
-    private void addCreative(BuildCreativeModeTabContentsEvent event) {}
+    private void addCreative(BuildCreativeModeTabContentsEvent event) {
+        if(event.getTabKey() == CreativeModeTabs.SPAWN_EGGS){
+            event.accept(ModItems.ICEOLOGER_SPAWN_EGG);
+        }
+    }
 }

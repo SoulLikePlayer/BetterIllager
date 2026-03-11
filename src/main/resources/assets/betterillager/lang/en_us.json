@@ -1,3 +1,8 @@
 {
-  "entity.betterillager.iceologer": "Iceologer"
+  "entity.betterillager.iceologer": "Iceologer",
+  "entity.betterillager.ice_block_projectile": "Ice Block Projectile",
+
+  "creativetab.betterillager.illager_spawn_egg": "Illager Spawn Egg",
+
+  "item.betterillager.iceologer_spawn_egg": "Iceologer Spawn Egg"
 }
