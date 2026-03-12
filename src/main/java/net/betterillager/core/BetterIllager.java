@@ -46,6 +46,7 @@ public class BetterIllager {
         ModEntityType.ENTITY_TYPES.register(modEventBus);
         ModItems.ITEMS.register(modEventBus);
         ModItemGroups.CREATIVE_MODE_TAB.register(modEventBus);
+        ModDataComponents.DATA_COMPONENTS.register(modEventBus);
 
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
