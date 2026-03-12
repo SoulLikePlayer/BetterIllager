@@ -1,0 +1,120 @@
+{
+  "name": "betterillager:iceologer_camps",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "betterillager:iceologer_camp/lantern_1",
+        "processors": { "processors": [] },
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "betterillager:iceologer_camp/lantern_2",
+        "processors": { "processors": [] },
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "betterillager:iceologer_camp/lantern_3",
+        "processors": { "processors": [] },
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "betterillager:iceologer_camp/lantern_4",
+        "processors": { "processors": [] },
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "betterillager:iceologer_camp/lantern_5",
+        "processors": { "processors": [] },
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "betterillager:iceologer_camp/lantern_6",
+        "processors": { "processors": [] },
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "betterillager:iceologer_camp/lantern_7",
+        "processors": { "processors": [] },
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "betterillager:iceologer_camp/lantern_8",
+        "processors": { "processors": [] },
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "betterillager:iceologer_camp/lantern_9",
+        "processors": { "processors": [] },
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "betterillager:iceologer_camp/lantern_10",
+        "processors": { "processors": [] },
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "betterillager:iceologer_camp/lantern_11",
+        "processors": { "processors": [] },
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "betterillager:iceologer_camp/lantern_12",
+        "processors": { "processors": [] },
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:empty_pool_element"
+      },
+      "weight": 2
+    }
+  ]
+}
