@@ -1,0 +1,17 @@
+{
+  "name": "betterillager:iceologer_camps",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "betterillager:iceologer_camp/base_camp",
+        "processors": {
+          "processors": []
+        },
+        "projection": "rigid"
+      },
+      "weight": 1
+    }
+  ]
+}

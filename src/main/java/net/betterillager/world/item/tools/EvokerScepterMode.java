@@ -18,7 +18,7 @@ public enum EvokerScepterMode implements StringRepresentable {
     SPIRAL("spiral"),
     WALL("wall");
 
-    public String name;
+    public final String name;
 
     EvokerScepterMode(String name){
         this.name = name;
