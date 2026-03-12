@@ -5,7 +5,7 @@
     {
       "element": {
         "element_type": "minecraft:legacy_single_pool_element",
-        "location": "betterillager:iceologer_camp/tent",
+        "location": "betterillager:iceologer_camp/tent_1",
         "processors": {
           "processors": []
         },
