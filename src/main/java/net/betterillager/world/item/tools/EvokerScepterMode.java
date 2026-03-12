@@ -10,7 +10,13 @@ import org.jetbrains.annotations.NotNull;
 public enum EvokerScepterMode implements StringRepresentable {
     LINE("line"),
     CIRCLE("circle"),
-    WAVE("wave");
+    WAVE("wave"),
+    SNAKE("snake"),
+    CROSS("cross"),
+    STAR("star"),
+    SHOCKWAVE("shockwave"),
+    SPIRAL("spiral"),
+    WALL("wall");
 
     public String name;
 
