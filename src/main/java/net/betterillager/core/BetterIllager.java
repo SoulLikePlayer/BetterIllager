@@ -3,7 +3,6 @@ package net.betterillager.core;
 import net.betterillager.world.entity.ModEntityType;
 import net.betterillager.world.item.ModItemGroups;
 import net.betterillager.world.item.ModItems;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import org.slf4j.Logger;
 

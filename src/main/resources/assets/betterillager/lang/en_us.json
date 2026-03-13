@@ -7,5 +7,7 @@
 
   "item.betterillager.iceologer_spawn_egg": "Iceologer Spawn Egg",
   "item.betterillager.ominous_horn": "Ominous Horn",
-  "item.betterillager.evoker_scepter": "Evoker Scepter"
+  "item.betterillager.evoker_scepter": "Evoker Scepter",
+  "item.betterillager.frozen_iron_axe": "Frozen Iron Axe",
+  "creativetab.betterillager.illager_combat": "Illager Weapon"
 }

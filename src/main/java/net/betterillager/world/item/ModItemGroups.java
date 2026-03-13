@@ -37,6 +37,20 @@ public class ModItemGroups {
                     .build()
     );
 
+    public static final Supplier<CreativeModeTab> ILLAGER_COMBAT = CREATIVE_MODE_TAB.register(
+            "illager_combat",
+            () -> CreativeModeTab.builder()
+                    .icon(() -> new ItemStack(Items.CROSSBOW))
+                    .title(Component.translatable("creativetab.betterillager.illager_combat"))
+                    .displayItems(((itemDisplayParameters, output) -> {
+                        output.accept(Items.CROSSBOW);
+                        output.accept(ModItems.EVOKER_SCEPTER);
+                        output.accept(Items.IRON_AXE);
+                        output.accept(ModItems.FROZEN_IRON_AXE);
+                    }))
+                    .build()
+    );
+
     public static final Supplier<CreativeModeTab> ILLAGER_TOOLS_AND_UTILITIES = CREATIVE_MODE_TAB.register(
             "illager_tools_and_utilities",
             () -> CreativeModeTab.builder()
