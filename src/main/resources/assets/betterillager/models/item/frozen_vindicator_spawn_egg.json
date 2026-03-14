@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "betterillager:item/frozen_vindicator_spawn_egg"
+  }
+}

@@ -25,6 +25,12 @@ public class ModItems {
             (props) -> new SpawnEggItem(props.spawnEgg(ModEntityType.ICEOLOGER.get()))
     );
 
+    public static final DeferredItem<@NotNull Item> FROZEN_VINDICATOR_SPAWN_EGG = ITEMS.registerItem(
+            "frozen_vindicator_spawn_egg",
+            (props) -> new SpawnEggItem(props.spawnEgg(ModEntityType.FROZEN_VINDICATOR.get()))
+    );
+
+
 
     public static final DeferredItem<@NotNull Item> OMINOUS_HORN = ITEMS.registerItem(
             "ominous_horn",

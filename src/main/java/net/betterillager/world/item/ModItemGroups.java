@@ -29,6 +29,7 @@ public class ModItemGroups {
                     .displayItems(((itemDisplayParameters, output) -> {
                         output.accept(Items.VEX_SPAWN_EGG);
                         output.accept(Items.VINDICATOR_SPAWN_EGG);
+                        output.accept(ModItems.FROZEN_VINDICATOR_SPAWN_EGG);
                         output.accept(Items.PILLAGER_SPAWN_EGG);
                         output.accept(Items.EVOKER_SPAWN_EGG);
                         output.accept(Items.RAVAGER_SPAWN_EGG);
