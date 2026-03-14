@@ -5,10 +5,10 @@ import net.betterillager.world.entity.projectile.IceBlockProjectile;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
@@ -24,7 +24,9 @@ import net.minecraft.world.entity.npc.villager.AbstractVillager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.raid.Raider;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.ServerLevelAccessor;
 import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.Nullable;
 
 public class Iceologer extends SpellcasterIllager {
     public Iceologer(EntityType<? extends @NotNull Iceologer> entityType, Level level) {
@@ -84,6 +86,15 @@ public class Iceologer extends SpellcasterIllager {
 
     public @NotNull SoundEvent getCelebrateSound() {
         return SoundEvents.PILLAGER_CELEBRATE;
+    }
+
+    public @Nullable SpawnGroupData finalizeSpawn(@NotNull ServerLevelAccessor serverLevelAccessor, @NotNull DifficultyInstance difficultyInstance, @NotNull EntitySpawnReason entitySpawnReason, @Nullable SpawnGroupData spawnGroupData) {
+        SpawnGroupData spawngroupdata = super.finalizeSpawn(serverLevelAccessor, difficultyInstance, entitySpawnReason, spawnGroupData);
+        this.getNavigation().setCanOpenDoors(true);
+        RandomSource randomsource = serverLevelAccessor.getRandom();
+        this.populateDefaultEquipmentSlots(randomsource, difficultyInstance);
+        this.populateDefaultEquipmentEnchantments(serverLevelAccessor, randomsource, difficultyInstance);
+        return spawngroupdata;
     }
 
     class IceologerCastingSpellGoal extends SpellcasterIllager.SpellcasterCastingSpellGoal {

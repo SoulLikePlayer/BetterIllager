@@ -1,11 +1,13 @@
 package net.betterillager.client;
 
 import net.betterillager.client.model.projectil.IceBlockProjectileModel;
+import net.betterillager.client.renderer.entity.FrozenVindicatorRenderer;
 import net.betterillager.client.renderer.entity.IceologerRenderer;
 import net.betterillager.client.renderer.projectil.IceBlockProjectileRenderer;
 import net.betterillager.core.BetterIllager;
 import net.betterillager.world.entity.ModEntityType;
 import net.minecraft.client.renderer.entity.ArrowRenderer;
+import net.minecraft.client.renderer.entity.VindicatorRenderer;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
@@ -40,6 +42,8 @@ public class BetterIllagerClient {
     @SubscribeEvent
     public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event){
         event.registerEntityRenderer(ModEntityType.ICEOLOGER.get(), IceologerRenderer::new);
+        event.registerEntityRenderer(ModEntityType.FROZEN_VINDICATOR.get(), FrozenVindicatorRenderer::new);
+
         event.registerEntityRenderer(ModEntityType.ICE_BLOCK_PROJECTILE.get(), IceBlockProjectileRenderer::new);
     }
 
