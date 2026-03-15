@@ -6,10 +6,18 @@
   "creativetab.betterillager.illager_spawn_egg": "Illager Spawn Egg",
   "creativetab.betterillager.illager_tools_and_utilities": "Illager Tools & Utilities",
   "creativetab.betterillager.illager_combat": "Illager Weapon",
+  "creativetab.betterillager.illager_ingredient": "Illager Ingredient",
 
   "item.betterillager.iceologer_spawn_egg": "Iceologer Spawn Egg",
   "item.betterillager.frozen_vindicator_spawn_egg": "Frozen Vindicator Spawn Egg",
   "item.betterillager.ominous_horn": "Ominous Horn",
   "item.betterillager.evoker_scepter": "Evoker Scepter",
-  "item.betterillager.frozen_iron_axe": "Frozen Iron Axe"
+  "item.betterillager.frozen_iron_axe": "Frozen Iron Axe",
+
+  "item.betterillager.frost_upgrade_template": "Frost Upgrade",
+
+  "item.betterillager.frost_upgrade.applies_to": "Iron Weapons",
+  "item.betterillager.frost_upgrade.ingredients": "Packed Ice",
+  "item.betterillager.frost_upgrade.base_slot_description": "Insert weapon",
+  "item.betterillager.frost_upgrade.additions_slot_description": "Insert frost catalyst"
 }

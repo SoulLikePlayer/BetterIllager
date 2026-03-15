@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": "betterillager:frost_upgrade_template",
+  "base": "minecraft:iron_axe",
+  "addition": "minecraft:packed_ice",
+  "result": {
+    "id": "betterillager:frozen_iron_axe"
+  }
+}

@@ -66,6 +66,16 @@ public class ModItemGroups {
                         output.accept(ModItems.OMINOUS_HORN);
                         output.accept(ModItems.EVOKER_SCEPTER);
                     }))
+                    .build());
+
+    public static final Supplier<CreativeModeTab> ILLAGER_INGREDIENT= CREATIVE_MODE_TAB.register(
+            "illager_ingredient",
+            () -> CreativeModeTab.builder()
+                    .icon(() -> new ItemStack(ModItems.FROST_UPGRADE_TEMPLATE.get()))
+                    .title(Component.translatable("creativetab.betterillager.illager_ingredient"))
+                    .displayItems(((itemDisplayParameters, output) -> {
+                        output.accept(ModItems.FROST_UPGRADE_TEMPLATE);
+                    }))
                     .build()
     );
 }
