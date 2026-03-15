@@ -2,7 +2,8 @@
   "required": true,
   "package": "net.betterillager.mixin",
   "compatibilityLevel": "JAVA_21",
-  "mixins": [],
+  "mixins": [
+  ],
   "injectors": {
     "defaultRequire": 1
   },
